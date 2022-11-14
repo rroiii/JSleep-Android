@@ -25,19 +25,19 @@ public class PaymentController implements BasicGetController<Payment>{
         Room roomFound = Algorithm.<Room>find(RoomController.roomTable,pred -> pred.id == roomId);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date fromDate = sdf.parse(from);
-        Date toDate = sdf.parse(to);
-
-        int duration = toDate.getDate()-fromDate.getDate();
-
-        double balance = roomFound.price.price*duration;
 
         //If account and room found
         if (accountFound  != null && roomFound != null) {
+            Date fromDate = sdf.parse(from);
+            Date toDate = sdf.parse(to);
+
+            int duration = toDate.getDate()-fromDate.getDate();
+            double balance = roomFound.price.price;
+            double totalFee = balance*duration;
 
             if(accountFound.balance >= roomFound.price.price && Payment.availability(fromDate, toDate, roomFound)) {
-                Payment newPayment = new Payment(buyerId,renterId,roomId);
-                accountFound.balance = accountFound.balance - roomFound.price.price;
+                Payment newPayment = new Payment(buyerId,renterId,roomId, fromDate, toDate);
+                accountFound.balance = accountFound.balance - totalFee;
                 newPayment.status = Invoice.PaymentStatus.WAITING;
                 newPayment.makeBooking(fromDate, toDate, roomFound);
 

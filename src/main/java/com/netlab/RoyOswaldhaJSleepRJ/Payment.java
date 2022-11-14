@@ -14,18 +14,32 @@ public class Payment extends Invoice {
     private int roomId;
 
     /**
+     *
+     * @param buyer buyer's account
+     * @param renter renter's account
+     * @param roomId
+     * @param from
+     * @param to
+     */
+    public Payment(Account buyer, Renter renter, int roomId, Date from, Date to){
+        super(buyer, renter);
+        this.from = from;
+        this.to = to;
+        this.roomId = roomId;
+    }
+    /**
      * Make new payment
      * Store information about an payment
      * @param buyerId
      * @param renterId
      * @param roomId
      */
-    public Payment(int buyerId, int renterId, int roomId){
+    public Payment(int buyerId, int renterId, int roomId, Date from, Date to){
         super(buyerId, renterId);
         this.roomId = roomId;
         
-        this.from = new Date();  
-        this.to = new Date();
+        this.from = from;
+        this.to = to;
     }
 
     /**
@@ -78,7 +92,7 @@ public class Payment extends Invoice {
      * @return payment date and room ID
      */
     public String print(){
-        return "To : " + to + "\nFrom : " + from + "\nRoom ID : " + roomId;
+        return "To : " + this.to + "\nFrom : " + this.from + "\nRoom ID : " + this.roomId;
     }
 
     /**
