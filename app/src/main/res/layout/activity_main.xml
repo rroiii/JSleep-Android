@@ -7,21 +7,13 @@
     tools:context=".MainActivity">
 
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="61dp"
-        tools:layout_editor_absoluteY="20dp" />
-
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="1dp"
         android:orientation="horizontal"
-        android:paddingTop="15dp"
+        android:paddingTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,5 +57,14 @@
             android:text="GO" />
 
     </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="92dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

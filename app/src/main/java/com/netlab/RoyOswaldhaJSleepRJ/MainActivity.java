@@ -1,26 +1,32 @@
 package com.netlab.RoyOswaldhaJSleepRJ;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.content.*;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.reflect.TypeToken;
+import com.netlab.RoyOswaldhaJSleepRJ.model.Account;
 import com.netlab.RoyOswaldhaJSleepRJ.model.Room;
 import com.google.gson.Gson;
+import com.netlab.RoyOswaldhaJSleepRJ.model.roomAdapter;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<String> nameRoom  = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +35,32 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.listView);
 
-        String jsonFileString = loadJson();
 
         Gson gson = new Gson();
-        Type listUserType = new TypeToken<List<Room>>() { }.getType();
-        ArrayList<Room> room = gson.fromJson(jsonFileString, listUserType);
 
-        //<Room> adapter = new ArrayAdapter<Room>(getApplicationContext(), R.layout.activity_main, room);
-        //listView.setAdapter(adapter);
+        try {
+            InputStream filepath = getAssets().open("randomRoomList.json");
+            BufferedReader reader = new BufferedReader(new InputStreamReader(filepath));
+            ArrayList<Room> roomList = new ArrayList<Room>();
+            Room[] acc = gson.fromJson(reader, Room[].class);
+            Collections.addAll(roomList, acc);
+            roomAdapter roomListView = new roomAdapter(this, roomList);
+            listView.setAdapter(roomListView);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
-
+    public static ArrayList<String> extractName(ArrayList<Room> list) {
+        Gson gson = new Gson();
+        ArrayList<String> ret = null;
+        int i;
+        for (i = 0; i < list.size(); i++) {
+            ret.add(list.get(i).name);
+        }
+        return ret;
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -64,22 +84,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public String loadJson() {
-        String jsonString;
+    public String loadJsonFromAsset() {
         try {
-            InputStream is = this.getAssets().open("randomList.json");
-
+            InputStream is = MainActivity.this.getAssets().open("randomRoomList.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-
-            jsonString = new String(buffer, "UTF-8");
-        } catch (IOException e) {
-            e.printStackTrace();
+            String json = new String(buffer, "UTF-8");
+            return json;
+        } catch (IOException ex) {
+            ex.printStackTrace();
             return null;
         }
-
-        return jsonString;
     }
+
+
 }
