@@ -21,8 +21,9 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     private Button registerButton;
     private Button loginButton;
+    public static Account accountLogin;
     BaseApiService mApiService;
-    EditText username, password;
+    EditText email, password;
     Context mContext;
 
     @Override
@@ -36,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         Button register = findViewById(R.id.registerButtonLogin);
         registerButton = (Button)findViewById(R.id.registerButtonLogin);
 
-        username = findViewById(R.id.emailFormLogin);
+        email = findViewById(R.id.emailFormLogin);
         password = findViewById(R.id.passwordFormLogin);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -50,10 +51,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Account account = requestAccount();
+                Account account = requestLogin();
             }
         });
     }
+    /*
     protected Account requestAccount(){
         mApiService.getAccount(0).enqueue(new Callback<Account>() {
             @Override
@@ -62,6 +64,24 @@ public class LoginActivity extends AppCompatActivity {
                     Account account;
                     account = response.body();
                     System.out.println(account.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Account> call, Throwable t) {
+                Toast.makeText(mContext, "no Account id=0", Toast.LENGTH_LONG).show();
+            }
+        });
+        return null;
+    }*/
+    protected Account requestLogin(){
+        mApiService.requestLogin(email.getText().toString(), password.getText().toString()).enqueue(new Callback<Account>() {
+            @Override
+            public void onResponse(Call<Account> call, Response<Account> response) {
+                if(response.isSuccessful()){
+                    openMainActivity();
+                    accountLogin = response.body();
+                    Toast.makeText(mContext, "Login Success!", Toast.LENGTH_LONG).show();
                 }
             }
 

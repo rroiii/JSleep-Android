@@ -16,4 +16,12 @@ public interface BaseApiService {
     @GET("renter/{id}")
     Call<Renter> getRenter (@Path("id") int id);
 
+    @GET("price/{id}")
+    Call<Price> getPrice(@Path("id") int id);
+
+    @POST("account/login")
+    Call<Account> requestLogin(@Query("email") String email, @Query("password") String password);
+
+    @POST("account/register")
+    Call<Account> requestRegister(@Query("name") String username, @Query("email") String email, @Query("password") String password);
 }
