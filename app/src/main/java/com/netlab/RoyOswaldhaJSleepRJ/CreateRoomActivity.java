@@ -31,7 +31,7 @@ public class CreateRoomActivity extends AppCompatActivity {
     CheckBox AC,Refrigerator, WiFi, Bathtub, Balcony, Restaurant, SwimPool, FitnessCenter;
     City city;
     BedType bedType;
-    ArrayList<Facility> facilities = new ArrayList<Facility>();
+    ArrayList<Facility> facility = new ArrayList<Facility>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,21 +78,21 @@ public class CreateRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(AC.isChecked())
-                    facilities.add(Facility.AC);
+                    facility.add(Facility.AC);
                 if(Refrigerator.isChecked())
-                    facilities.add(Facility.Refrigerator);
+                    facility.add(Facility.Refrigerator);
                 if(WiFi.isChecked())
-                    facilities.add(Facility.WiFi);
+                    facility.add(Facility.WiFi);
                 if(Bathtub.isChecked())
-                    facilities.add(Facility.Bathtub);
+                    facility.add(Facility.Bathtub);
                 if(Balcony.isChecked())
-                    facilities.add(Facility.Balcony);
+                    facility.add(Facility.Balcony);
                 if(Restaurant.isChecked())
-                    facilities.add(Facility.Restaurant);
+                    facility.add(Facility.Restaurant);
                 if(SwimPool.isChecked())
-                    facilities.add(Facility.SwimmingPool);
+                    facility.add(Facility.SwimmingPool);
                 if(FitnessCenter.isChecked())
-                    facilities.add(Facility.FitnessCenter);
+                    facility.add(Facility.FitnessCenter);
                 city = (City) spinnerCity.getSelectedItem();
                 bedType = (BedType) spinnerBedType.getSelectedItem();
 
@@ -110,16 +110,7 @@ public class CreateRoomActivity extends AppCompatActivity {
     }
 
     protected Room requestCreateRoom(){
-        mApiService.requestRoom(
-                LoginActivity.accountLogin.id,
-                roomName.getText().toString(),
-                Integer.parseInt(roomSize.getText().toString()),
-                Integer.parseInt(roomPrice.getText().toString()),
-                facilities,
-                this.city,
-                roomAddress.getText().toString(),
-                this.bedType
-        ).enqueue(new Callback<com.netlab.RoyOswaldhaJSleepRJ.model.Room>() {
+        mApiService.requestRoom(LoginActivity.accountLogin.id, roomName.getText().toString(), Integer.parseInt(roomSize.getText().toString()), Integer.parseInt(roomPrice.getText().toString()), facility, this.city, roomAddress.getText().toString(), this.bedType).enqueue(new Callback<com.netlab.RoyOswaldhaJSleepRJ.model.Room>() {
             @Override
             public void onResponse(Call<com.netlab.RoyOswaldhaJSleepRJ.model.Room> call, Response<com.netlab.RoyOswaldhaJSleepRJ.model.Room> response) {
                 com.netlab.RoyOswaldhaJSleepRJ.model.Room room = response.body();

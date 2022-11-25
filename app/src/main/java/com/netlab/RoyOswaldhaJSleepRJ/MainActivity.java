@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     List<String> nameStr;
     List<Room> temp ;
-    List<Room> acc ;
+    List<Room> rooms ;
 
     private String pageString;
     public int pageInt, pageSize=10;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         String pageString = String.valueOf(pageInt);
         page.setText(pageString);
 
-        acc = getRoomList(1, pageSize);
+        rooms = getRoomList(1, pageSize);
 
         prevButton = (Button) findViewById(R.id.prev_button);
         nextButton = (Button) findViewById(R.id.next_button);
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 String pageString = String.valueOf(pageInt);
                 page.setText(pageString);
                 try {
-                    acc = getRoomList(pageInt-1, pageSize);  //return null
+                    rooms = getRoomList(pageInt-1, pageSize);  //return null
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 String pageString = String.valueOf(pageInt);
                 page.setText(pageString);
                 try {
-                    acc = getRoomList(pageInt-1, pageSize);  //return null
+                    rooms = getRoomList(pageInt-1, pageSize);  //return null
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     pageInt = Integer.parseInt(page.getText().toString());
                 }
                 try {
-                    acc = getRoomList(pageInt-1, pageSize);  //return null
+                    rooms = getRoomList(pageInt-1, pageSize);  //return null
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
