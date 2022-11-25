@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         mApiService = UtilsApi.getApiService();
         mContext = this;
+
         username = findViewById(R.id.usernameFormRegister);
         email = findViewById(R.id.emailFormRegister);
         password = findViewById(R.id.passwordFormRegister);
