@@ -43,7 +43,7 @@ public class MainFragment extends Fragment implements RoomAdapter.RoomClickListe
     private Button prevButton, nextButton, goButton;
     private  ImageButton filterButton;
     private EditText page;
-    private int currentPage = 0, pageSize = 10;
+    private int currentPage = 0, pageSize = 3;
     public static int selectedRoom;
     private ImageView imgNotFound;
     private ArrayList<String> filterCity = new ArrayList<>();
@@ -123,20 +123,20 @@ public class MainFragment extends Fragment implements RoomAdapter.RoomClickListe
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int pageTotal = (allRooms.size()/pageSize);
-                if(allRooms.size() % pageSize != 0){
+                int pageTotal = (allRooms.size()/pageSize) + 1;
+                Log.d("page", String.valueOf(pageTotal));
+                if(pageTotal % pageSize != 0){
                     pageTotal = pageTotal + 1;
                 }
                 if(allRooms.size()<pageSize){
                     pageTotal = 0;
                 }
-                if(currentPage > pageTotal){
+                if(currentPage >= pageTotal){
                     currentPage = pageTotal;
                 }
                 if(currentPage <= pageTotal){
                     currentPage++;
                 }
-
 
                 getRoomList(currentPage,pageSize);
                 page.setText(String.valueOf(currentPage+1));
@@ -147,6 +147,9 @@ public class MainFragment extends Fragment implements RoomAdapter.RoomClickListe
             @Override
             public void onClick(View view) {
                 currentPage = Integer.parseInt(page.getText().toString())-1;
+                if(currentPage<0){
+                    currentPage = 0;
+                }
                 getRoomList(currentPage,pageSize);
                 page.setText(String.valueOf(currentPage+1));
             }
