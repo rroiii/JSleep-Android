@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.netlab.RoyOswaldhaJSleepRJ.model.Payment;
@@ -94,6 +95,7 @@ public class BookRoomActivity extends AppCompatActivity {
                 DatePickerDialog datePickerDialog = new DatePickerDialog(mContext, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+
                         Calendar newDate = Calendar.getInstance();
                         newDate.set(year, month, day);
                         dateFromInput.setText(day + "/" + (month + 1) + "/" + year);
@@ -106,6 +108,8 @@ public class BookRoomActivity extends AppCompatActivity {
                     }
                 }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
+                datePickerDialog.getDatePicker().setMinDate(newCalendar.getTimeInMillis());
+
             }
         });
 
@@ -145,6 +149,10 @@ public class BookRoomActivity extends AppCompatActivity {
                     }
                 }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
                 datePickerDialog.show();
+                long dateAfterFrom = fromDate.getTime();
+                long dateAfterFromDays = TimeUnit.MILLISECONDS.toDays(dateAfterFrom) + 2;
+                long dateAfterFromMillis = TimeUnit.DAYS.toMillis(dateAfterFromDays);
+                datePickerDialog.getDatePicker().setMinDate(dateAfterFromMillis);
             }
         });
 
@@ -179,10 +187,12 @@ public class BookRoomActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Payment> call, Response<Payment> response) {
                 newPayment = response.body();
+                Toast.makeText(mContext, "Booked!", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Payment> call, Throwable t) {
+                Toast.makeText(mContext, "Failed", Toast.LENGTH_SHORT).show();
             }
         });
         return null;

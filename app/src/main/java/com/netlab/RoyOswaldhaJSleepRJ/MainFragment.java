@@ -125,18 +125,18 @@ public class MainFragment extends Fragment implements RoomAdapter.RoomClickListe
             public void onClick(View view) {
                 int pageTotal = (allRooms.size()/pageSize);
                 if(allRooms.size() % pageSize != 0){
-                    pageTotal++;
+                    pageTotal = pageTotal + 1;
                 }
                 if(allRooms.size()<pageSize){
                     pageTotal = 0;
-                }else{
-                    if(currentPage >= pageTotal){
-                        currentPage = pageTotal;
-                    }
-                    if(currentPage < pageTotal){
-                        currentPage++;
-                    }
                 }
+                if(currentPage > pageTotal){
+                    currentPage = pageTotal;
+                }
+                if(currentPage <= pageTotal){
+                    currentPage++;
+                }
+
 
                 getRoomList(currentPage,pageSize);
                 page.setText(String.valueOf(currentPage+1));

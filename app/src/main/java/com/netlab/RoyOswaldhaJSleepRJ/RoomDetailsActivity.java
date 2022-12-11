@@ -199,7 +199,7 @@ public class RoomDetailsActivity extends AppCompatActivity {
                 facilities.add(new RoomFacility("WiFi", R.drawable.ic_baseline_wifi_24));
             }
             if(roomFacility.equals(Facility.Refrigerator)){
-                facilities.add(new RoomFacility("WiFi", R.drawable.ic_baseline_wifi_24));
+                facilities.add(new RoomFacility("Refrigerator", R.drawable.ic_refrigerator));
             }
             if(roomFacility.equals(Facility.Bathtub)){
                 facilities.add(new RoomFacility("Bathtub", R.drawable.ic_bathub));
