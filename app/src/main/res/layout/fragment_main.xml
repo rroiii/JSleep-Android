@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentMain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentMain_Title">
+
+        <android.widget.SearchView
+
+            android:id="@+id/main_searchBar"
+            android:layout_width="315dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/search_view_bg"
+            android:elevation="2dp"
+            app:actionViewClass="androidx.appcompat.widget.SearchView"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search Here" />
+
+        <ImageButton
+            android:id="@+id/fragmentMain_filter"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/image_button_bg"
+            android:src="@drawable/ic_baseline_filter_list_24" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="230dp"
+        android:layout_marginBottom="85dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentMain_Button">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_roomListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:visibility="visible">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/fragmentMain_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/fragmentMain_PrevButton"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff"
+                android:elevation="10dp"
+                android:text="PREV"
+                android:textColor="#2e8dff"
+                app:cornerRadius="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/fragmentMain_GoButton"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffffff"
+                android:text="Go"
+                android:textColor="#2e8dff"
+                app:cornerRadius="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/fragmentMain_NextButton"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:backgroundTint="#ffffff"
+                android:text="Next"
+                android:textColor="#2e8dff"
+                app:cornerRadius="10dp"
+                app:layout_constraintStart_toEndOf="@+id/fragmentMain_PrevButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/fragmentMain_page"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:fontFamily="sans-serif-light"
+                android:inputType="textPersonName"
+                android:text="1"
+                android:textAlignment="center"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/fragmentMain_GoButton"
+                app:layout_constraintStart_toEndOf="@+id/fragmentMain_NextButton"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TouchTargetSizeCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/fragmentMain_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="serif"
+        android:text="Discover"
+        android:textColor="#333333"
+        android:textSize="48dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/main_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="181dp"
+        android:layout_marginEnd="182dp"
+        android:layout_marginBottom="342dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/fragmentMain_imageNotFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:src="@mipmap/img_not_found"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/main_roomNotFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Sorry, we can't find that room"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentMain_imageNotFound" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

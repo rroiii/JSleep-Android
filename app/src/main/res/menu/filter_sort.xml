@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group  android:checkableBehavior="all">
+        <item android:id="@+id/Bekasi" android:title="Bekasi"/>
+        <item android:id="@+id/Bali" android:title="Bali"/>
+        <item android:id="@+id/Bandung" android:title="Bandung"/>
+        <item android:id="@+id/Surabaya" android:title="Surabaya"/>
+        <item android:id="@+id/Jakarta" android:title="Jakarta"/>
+        <item android:id="@+id/Semarang" android:title="Semarang"/>
+        <item android:id="@+id/Medan" android:title="Medan"/>
+        <item android:id="@+id/Depok" android:title="Depok"/>
+        <item android:id="@+id/Lampung" android:title="Lampung"/>
+    </group>
+</menu>

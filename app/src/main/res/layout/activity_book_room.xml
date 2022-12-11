@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#6DB863"
+    tools:context=".BookRoomActivity">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:layout_conversion_absoluteHeight="0dp"
+            tools:layout_conversion_absoluteWidth="411dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <TextView
+                android:id="@+id/BookRoomActivity_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="serif"
+                android:text="Book Now!"
+                android:textColor="#333333"
+                android:textSize="48sp"
+                android:textStyle="bold" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/BookRoomActivity_roomInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="15dp">
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomPriceOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="205dp"
+                    android:text="Price"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="205dp"
+                    android:text="Price"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomInfoTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="15dp"
+                    android:text="Room Summary"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="55dp"
+                    android:text="Name"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="85dp"
+                    android:text="Address"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomCity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="115dp"
+                    android:text="City"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivitym_roomSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="145dp"
+                    android:text="Size"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomBedType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="175dp"
+                    android:text="Bed Type"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomNameOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="55dp"
+                    android:text="Name"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomAddressOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="85dp"
+                    android:text="Address"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomCityOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="115dp"
+                    android:text="City"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomSizeOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="145dp"
+                    android:text="Size"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomBedTypeOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="175dp"
+                    android:text="Bed Type"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/BookRoomActivity_bookSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="15dp">
+
+                <EditText
+                    android:id="@+id/BookRoomActivity_dateFromInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="75dp"
+                    android:layout_marginBottom="15dp"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="From"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+                <EditText
+                    android:id="@+id/BookRoomActivity_dateToInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="150dp"
+                    android:layout_marginBottom="15dp"
+                    android:ems="10"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="To"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:paddingBottom="12dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_bookTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="15dp"
+                    android:text="Rent"
+                    android:textColor="#333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_fromDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="55dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="From"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_toDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="130dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="To"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_night"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="205dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Night"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_nightOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginTop="205dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:text="Night"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/BookRoomActivity_voucher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:backgroundTint="#FFFFFFFF"
+                android:clickable="true"
+                android:fontFamily="sans-serif-light"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="Apply promos before you rent"
+                android:textAllCaps="false"
+                android:textColor="#333333"
+                android:visibility="visible"
+                app:cornerRadius="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/BookRoomActivity_Price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomDiscountOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="50dp"
+                    android:text="Discount"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomDiscount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="50dp"
+                    android:text="Discount"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomPriceXdurationOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:text="Price"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_roomPriceXduration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="20dp"
+                    android:text="Price"
+                    android:textColor="#333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_totalPriceOutput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="140dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="80dp"
+                    android:text="Total Price"
+                    android:textAlignment="textStart"
+                    android:textColor="#333333"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/BookRoomActivity_totalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="80dp"
+                    android:text="Total Price"
+                    android:textColor="#333333"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/BookRoomActivity_bookButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="160dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="#2e8dff"
+                android:fontFamily="sans-serif-light"
+                android:text="BOOK"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                app:cornerRadius="10dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

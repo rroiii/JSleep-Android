@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="240dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/paymentList_paymentPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:paddingLeft="20dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp"
+            android:text="City"
+            android:textColor="#616060"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/paymentList_roomName"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/paymentList_roomName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:fontFamily="sans-serif-medium"
+            android:paddingLeft="20dp"
+            android:paddingRight="15dp"
+            android:text="Name"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/paymentList_paymentStatus"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:paddingTop="12dp"
+        android:text="Status"
+        android:textAlignment="viewEnd"
+        android:textColor="#ACACAC"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

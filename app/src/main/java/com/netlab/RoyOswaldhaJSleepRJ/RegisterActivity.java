@@ -3,10 +3,12 @@ package com.netlab.RoyOswaldhaJSleepRJ;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.netlab.RoyOswaldhaJSleepRJ.model.Account;
@@ -21,7 +23,9 @@ public class RegisterActivity extends AppCompatActivity {
     public static Account accountRegister;
     private Button registerButton;
     BaseApiService mApiService;
-    EditText username, email, password;
+    private EditText username, email, password;
+    private TextView loginButton;
+
     Context mContext;
 
     @Override
@@ -31,15 +35,24 @@ public class RegisterActivity extends AppCompatActivity {
         mApiService = UtilsApi.getApiService();
         mContext = this;
 
-        username = findViewById(R.id.usernameFormRegister);
-        email = findViewById(R.id.emailFormRegister);
-        password = findViewById(R.id.passwordFormRegister);
+        username = findViewById(R.id.registerActivity_usernameForm);
+        email = findViewById(R.id.registerAcitivity_emailForm);
+        password = findViewById(R.id.registerActivity_passwordForm);
 
-        registerButton = (Button)findViewById(R.id.registerButtonRegister);
+        loginButton = findViewById(R.id.registerActivity_signIn);
+        registerButton = (Button)findViewById(R.id.registerActivity_registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Account account = requestRegister();
+                openLoginActivity();
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLoginActivity();
             }
         });
     }
@@ -60,5 +73,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
         return null;
+    }
+
+    public void openLoginActivity(){
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
     }
 }
